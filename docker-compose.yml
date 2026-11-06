@@ -1,0 +1,10 @@
+services:
+  weabot:
+    build: .
+    container_name: weabot-rust
+    restart: always
+    volumes:
+      - ./sessions:/app/sessions
+      - ./.env:/app/.env
+    environment:
+      - RUST_LOG=info

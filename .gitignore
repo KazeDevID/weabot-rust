@@ -1,0 +1,8 @@
+/target/
+sessions/
+*.db
+*.db-shm
+*.db-wal
+.env
+Cargo.lock
+**/*.rs.bk

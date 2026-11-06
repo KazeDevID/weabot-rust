@@ -1,0 +1,22 @@
+[package]
+name = "weabot-rust"
+version = "0.1.0"
+edition = "2024"
+authors = ["KazeDevID <mkzstylee35@gmail.com>"]
+description = "Blazingly fast, multi-device WhatsApp Bot written in Rust powered by whatsapp-rust"
+license = "MIT"
+repository = "https://github.com/KazeDevID/weabot-rust"
+
+[dependencies]
+# Menggunakan branch utama dari fork Anda (whatsapp-rust)
+whatsapp-rust = { git = "https://github.com/KazeDevID/whatsapp-rust", branch = "main", features = [
+    "sqlite-storage",
+    "tokio-runtime",
+    "tokio-transport",
+    "ureq-client",
+    "signal"
+] }
+tokio = { version = "1", features = ["full"] }
+env_logger = "0.11"
+log = "0.4"
+dotenv = "0.15"
