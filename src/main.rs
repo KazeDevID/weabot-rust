@@ -16,7 +16,7 @@ use log::{error, info};
 use std::time::Instant;
 use whatsapp_rust::pair_code::PairCodeOptions;
 use whatsapp_rust::prelude::*;
-use whatsapp_rust::SqliteStore;
+use whatsapp_rust::storages::SqliteStore;
 
 fn parse_arg(args: &[String], long: &str, short: &str) -> Option<String> {
     for i in 0..args.len() {
@@ -42,7 +42,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
             writeln!(
                 buf,
                 "{} [{:<5}] [{}] {}",
-                wacore::time::now_utc().format("%H:%M:%S"),
+                whatsapp_rust::wacore::time::now_utc().format("%H:%M:%S"),
                 record.level(),
                 record.target(),
                 record.args()
