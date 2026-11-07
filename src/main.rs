@@ -16,7 +16,7 @@ use log::{error, info};
 use std::time::Instant;
 use whatsapp_rust::pair_code::PairCodeOptions;
 use whatsapp_rust::prelude::*;
-use whatsapp_rust::SqliteStore;
+use whatsapp_rust::prelude::SqliteStore;
 
 fn parse_arg(args: &[String], long: &str, short: &str) -> Option<String> {
     for i in 0..args.len() {
