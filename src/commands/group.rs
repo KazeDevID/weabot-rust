@@ -52,7 +52,7 @@ pub fn register(router: &mut BotRouter) {
             return Ok(());
         }
         let target_raw = cmd.args[0].replace(['+', '-', ' ', '@', 's', '.', 'w', 'h', 'a', 't', 's', 'p', 'n', 'e'], "");
-        let target_jid = match wacore_binary::Jid::new(&target_raw, wacore_binary::Server::Pn) {
+        let target_jid = match whatsapp_rust::Jid::new(&target_raw, whatsapp_rust::Server::Pn) {
             target => target,
         };
 

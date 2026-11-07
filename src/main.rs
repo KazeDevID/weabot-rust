@@ -16,7 +16,7 @@ use log::{error, info};
 use std::time::Instant;
 use whatsapp_rust::pair_code::PairCodeOptions;
 use whatsapp_rust::prelude::*;
-use whatsapp_rust::storages::SqliteStore;
+use whatsapp_rust::SqliteStore;
 
 fn parse_arg(args: &[String], long: &str, short: &str) -> Option<String> {
     for i in 0..args.len() {
@@ -105,7 +105,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     if let Some(phone) = phone_arg {
         info!("Phone number provided: {}. Using 8-Digit Pairing Code...", phone);
         builder = builder
-            .with_pair_code(PairCodeOptions::new(phone))
+            .with_pair_code(PairCodeOptions { phone_number: phone, ..Default::default() })
             .on_pair_code(|code, timeout| async move {
                 println!("\n╔═════════════════════════════════════════════════╗");
                 println!("║   KODE PAIRING WHATSAPP (8-DIGIT):              ║");
